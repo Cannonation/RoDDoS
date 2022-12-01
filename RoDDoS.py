@@ -21,9 +21,9 @@ try:
     input(Fore.WHITE + "[" + Fore.RED + "+" + Fore.WHITE + "]" " Press [ENTER] to start")
 except SyntaxError:
     pass
-list_of_files = glob.glob(r'C:\users\{}\AppData\Local\Roblox\logs\*'.format(username))
+list_of_files = glob.glob(r'C:\\users\\{}\\AppData\\Local\\Roblox\\logs\\*'.format(username))
 latest_file = max(list_of_files, key=os.path.getctime)
-roblox_log = open(latest_file, 'r')
+roblox_log = open(latest_file, 'r',encoding="utf8")
 
 for line in roblox_log:
     if 'Connection accepted from' in line:
@@ -32,7 +32,7 @@ for line in roblox_log:
         line3 = line2[25:]
         print("connected to roblox server: " + line3)
 
-        ip_history = open('server_ips.txt', 'a+')
+        ip_history = open('server_ips.txt', 'a+',encoding="utf8")
         ip_history.write(line3 + "\n")
         ip_history.close()
 
