@@ -71,7 +71,7 @@ input(Fore.WHITE + "[" + Fore.RED + "+" + Fore.WHITE + "]" "press [ENTER] to sta
 # -*- coding: utf-8 -*-
 
 if ctypes.windll.shell32.IsUserAnAdmin() != True:
-    print(Fore.WHITE + "[" + Fore.RED + "WARNING" + Fore.WHITE + "]" "not an admin, connection rate will be slow!")
+    print(Fore.WHITE + "[" + Fore.RED + "WARNING" + Fore.WHITE + "]" "threading is disabled so connection rate will be slow! please restart terminal as administrator")
     time.sleep(5)
     os.system("cls")
 
